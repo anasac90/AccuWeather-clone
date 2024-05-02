@@ -10,6 +10,7 @@
     font-family: accuweather;
 }
 .header{
+    height: 62px;
     height: 420px;
     position: relative;
     background: url(images/main3.jpg) 50% no-repeat, linear-gradient(#878787, #ebebeb);
@@ -24,24 +25,33 @@
     top: 0;
     width: 100%;
 }
-.top-bar{
+#topbarouter{
+    background-color:unset;
+    transition: backgroung-color 0.4s ease-in-out;
+    z-index: 100;
+    height: 44px;
     color: #fff;
-    left: 0;
     position: fixed;
-    right: 0;
     top: 0;
+    left: 0;
+    right: 0;
     visibility: visible !important;
-    margin: 0 8%;
+    align-items: center;
+}
+.scrolled{
+    background-color: #1f1f1f !important;
+}
+.topbar{
+    margin: 0 auto;
     max-width: 1200px;
-    padding: 0 32px;
+    padding: 0 20px;
     align-items: center;
     display: flex;
-    height: 62px;
+    height: 100%;
 }
 .accu-logo{
-    margin-right: 15px;
-    width: auto;
     cursor: pointer;
+    align-items: center;
 }
 .pull-right{
     align-items: center;
@@ -54,30 +64,21 @@
     cursor: pointer;
 }
 .header-mid{
-    max-width: 1200px;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-bottom: 56px;
-    padding-top: 56px;
-    margin: 0 10.5%;
+    padding: 20px 20px 12px;
+    margin: 0 auto;
     position: relative;
     top: 63px;
 }
 .inner-block{
     margin-left: auto;
     margin-right: auto;
-    flex-basis: 552px;
-    max-width: 576px;
-    padding-right: 20px;
-    width: 50%;
 }
 .searchbar{
-    margin-bottom: 24px;
     height: 44px;
+    margin: auto auto 16px;
     width: 100%;
     background: hsla(0, 0%, 100%, .95);
     border-radius: 4px;
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     position: relative;
 }
@@ -129,8 +130,8 @@
     top: 4px;
 }
 .rec-loc-header{
-    display: block;
     color: #fff;
+    display: none;
     font-size: 12px;
     letter-spacing: .5px;
     line-height: 1.33;
@@ -139,44 +140,49 @@
     font-family: accuweather;
 }
 .rec-loc-block{
-    height: auto;
-    margin: 0;
     overflow: hidden;
 }
 .rec-loc-widgets{
-    flex-direction: row;
-    margin-bottom: 8px;
+    display: flex;
     overflow: hidden;
-    padding: 0;
+    overflow-x: auto;
+    padding: 0 20px 30px;
     position: relative;
+    transition: transform .25s ease-in-out;
 }
 .widget{
-    margin-right: 20px;
-    width: 27%;
-    align-items: flex-start;
-    flex-direction: column;
-    height: 100px;
-    margin-bottom: 8px;
-    max-width: 172px;
-    padding: 16px 12px 16px 16px;
+    opacity: 1;
+    transition: opacity .5s;
     backdrop-filter: blur(20px);
     background: rgba(0, 0, 0, .25);
     border-radius: 6px;
     color: #fff;
     cursor: pointer;
     display: flex;
-    float: left;
-    min-width: auto;
+    font-size: 16px;
+    justify-content: space-between;
+    margin-right: 16px;
+    min-width: 280px;
+    padding: 8px 12px;
     text-decoration: none;
 }
+.placeflex{
+    display: flex;
+}
 .place{
-    font-size: 18px;
-    line-height: 1.22;
-    margin-right: 0;
-    max-width: 139px;
+    flex-grow: 1;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    max-width: 150px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; 
 }
 .country{
-    display: block;
+    display: none;
     font-size: 12px;
     line-height: 1.33;
     overflow: hidden;
@@ -186,7 +192,6 @@
     width: 100%;
 }
 .temp{
-    margin-bottom: 5px;
     align-items: center;
     display: flex;
 }
@@ -197,29 +202,29 @@
     width: 32px;
 }
 .temperature{
-    display: block;
-    font-size: 30px;
-    line-height: 1.13;
+    display: flex;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.17;
 }
 .temp-unit{
-    bottom: auto;
-    left: -13px;
+    bottom: -10px;
     font-size: 12px;
+    font-weight: 400;
     left: -5px;
     line-height: 1.33;
     opacity: .5;
     position: relative;
 }
 .real-feel-temp{
-    display:block;
+    display:none;
     font-size: 12px;
     line-height: 1.33;
     float:inline-start;
 }
 .ad-block{
-    margin-right: 16%;
-    margin-left: 16%;
     margin-bottom: 16px;
+    align-items: center;
     height: auto;
     min-height: 250px;
     overflow: hidden;
@@ -230,7 +235,6 @@
     box-sizing: border-box;
 }
 .google-ad-block{
-    margin: 18px 118.34px;
     background-color: #fff;
     box-shadow: 0 0 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
     border-radius: 5px;
@@ -306,10 +310,10 @@
     float: right;
 }
 .two-column-body{
-    margin: 16px auto 24px;
     max-width: 960px;
     flex-direction: row;
     display: flex;
+    margin: 0 24px 24px;
 
 }
 .column1{
@@ -353,24 +357,22 @@
     cursor: pointer;
 }
 .content2-header{
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    align-items: center;
     justify-content: space-between;
     display: flex;
+
 }
 .nearest-lacations{
-    flex-direction: row;
-    flex-wrap: wrap;
     display: flex;
+    flex-direction: column;
     margin-bottom: 12px;
 }
 .nearest-lacations-blocks{
-    margin-right: 2px;
-    max-width: calc(46% - 9px);
-    min-width: calc(46% - 9px);
-    flex-grow: 1;
     margin-bottom: 2px;
     align-items: center;
     background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .05);
     display: flex;
     max-height: 59px;
     padding: 16px;
@@ -425,9 +427,13 @@
 .content3-content{
     display: flex;
     overflow: hidden;
+}
+.content3-contentdiv{
     margin-left: 0;
     margin-right: 0;
-    padding: 0;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 12px;
 }
 .content3-block1{
     margin-left: 12px;
@@ -518,7 +524,6 @@
 .column2{
     min-width: 304px;
     width: 304px;
-    float: right;
 }
 .column2-block1{
     margin-bottom: 16px;
@@ -772,29 +777,53 @@
     content: "Powered by";
 }
 .around-the-web-content{
+    overflow: visible;
     position: relative;
     background: transparent;
-    padding: 0px;
+    padding: 0px !important;
+    box-sizing: border-box !important;
 }
 .around-the-web-content-split{
+    overflow: visible;
     flex-flow: wrap;
     justify-content: space-between;
-    display: flex;
-    padding: 0px;
+    display: flex !important;
+    padding: 0px !important;
+    box-sizing: border-box !important;
 }
 .around-the-web-content-block{
+    overflow: visible;
+    box-sizing: border-box !important;
     margin: 0;
     padding: 0;
     height: auto;
-    overflow: hidden;
-    width: 207px;
+    overflow: hidden !important;
+    width: 207px !important;
     cursor: pointer;
 }
+
 .around-the-web-content-sublock{
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
     color: rgb(51, 51, 51);
+}
+.around-the-web-content-image{
+    line-height: 0;
+    font-size: 0px;
+    position: relative;
+    height: 160px;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+.around-the-web-content-img{
+    overflow: hidden;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    ox-sizing: border-box !important;
 }
 .around-the-web-content-text{
     display: flex;
@@ -822,8 +851,6 @@
     padding: 15px;
 }
 .world-content{
-    margin-left: auto;
-    margin-right: auto;
     align-items: center;
     display: flex;
     max-width: 960px;
@@ -841,42 +868,33 @@
     margin-right: 12px;
 }
 .footer{
-    padding-top: 40px;
+    padding-top: 24px;
     background: #fff;
 }
 .footer1{
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 0;
+    padding-bottom: 24px;
 }
 .footer1-table{
-    flex-direction: row;
     display: flex;
 }
 .footer1-cat1{
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     flex-grow: 1;
 }
-.footer1-cat1-text{
-    margin-bottom: 16px;
-}
 .footer1-cat1-head{
-    margin-bottom: 8px;
     color: #878787;
     font-size: 14px;
+    margin-bottom: 4px;
     text-transform: uppercase;
 }
 .footer1-cat1-body{
     flex-direction: column;
-    flex-wrap: wrap;
     display: flex;
 }
 .footer1-cat1-body1{
-    line-height: 2.15;
-    margin-right: auto;
-    font-size: 13px;
-    margin-bottom: 0;
+    font-size: 14px;
     color: #000;
+    margin-bottom: 32px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -923,4 +941,236 @@
     color: #878787;
     font-weight: 700;
     text-decoration: none;
+}
+
+@media (max-width: 767px){
+    .rec-loc-block{
+        height: auto;
+        margin: 0;
+    }
+    .accu-logo{
+        width: auto;
+    }
+    .rec-loc-widgets{
+        flex-direction: column;
+        padding: 0;
+    }
+    .widget{
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+    .google-ad-block {
+        margin: 18px 0;
+    }
+    .two-column-body{
+        flex-direction: column;
+        margin: 0 12px;
+    }
+    .column1{
+        margin: 0 0 16px;
+        width: 100%;
+    }
+    .content3-contentdiv{
+        scrollbar-width: none;
+    }
+    .column2{
+        margin: auto;
+    }
+    .around-the-web-content-block{
+        margin: 0 auto;
+    }
+}
+
+
+@media (min-width: 768px){
+    .around-the-web-content-block{
+        margin: 0 auto;
+    }
+    #topbarouter{
+        height: 62px;
+    }
+    .topbar{
+        margin: 0 24px;
+    }
+    .accu-logo{
+        margin-right: 15px;
+        width: auto;
+    }
+    .header-mid{
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 56px;
+        padding-top: 56px;
+    }
+    .inner-block{
+        padding-right: 20px;
+        width: 50%;
+    }
+    .rec-loc-block{
+        height: auto;
+        margin: 0;
+    }
+    .rec-loc-widgets{
+        flex-direction: column;
+        padding: 0; 
+    }
+    .widget{
+        margin-bottom: 8px;
+        margin-right: 0;
+        min-width: auto;
+    }
+    .place{
+        max-width: 28vw; 
+    }
+    .google-ad-block {
+        margin: 18px 118.34px;
+    }
+    .content2-header{
+        margin-bottom: 8px;
+    }
+    .content3-header{
+        padding: 0;
+    }
+    .content3-contentdiv{
+        padding: 0;
+    }
+    .footer1{
+        padding: 0 24px;
+    }
+    .footer1-table{
+        flex-direction: column;
+    }
+    .footer1-cat1{
+        margin-bottom: 24px;
+    }
+    .footer1-cat1-head{
+        margin-bottom: 8px;
+    }
+    .footer1-cat1-body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .footer1-cat1-body1{
+        font-size: 13px;
+        line-height: 2.08;
+        margin-bottom: 0;
+        margin-right: 24px;
+    }
+    .top-marg{
+        margin-top: 24px;
+    }
+}
+
+
+@media (min-width: 1024px){
+    .top-marg{
+        margin-top: 0px;
+    }
+    .footer1-cat1-text{
+        margin-bottom: 16px;
+    }
+    .topbar{
+        padding: 0 32px;
+        margin: 0 auto;
+    }
+    .header-mid{
+        max-width: 1200px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .inner-block{
+        flex-basis: 552px;
+        max-width: 576px;
+    }
+    .searchbar{
+        margin-bottom: 24px;
+    }
+    .rec-loc-header{
+        display: block;
+    }
+    .rec-loc-widgets{
+        flex-direction: row;
+        margin-bottom: 8px;
+        overflow: hidden;
+    }
+    .widget{
+        margin-right: 8px;
+        width: 33%;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 133px;
+        max-width: 172px;
+        padding: 16px 12px 16px 16px;
+    }
+    .place{
+        font-size: 18px;
+        line-height: 1.22;
+        margin-right: 0;
+        max-width: 139px;
+    }
+    .country{  
+        display: block;
+    }
+    .temp{
+        margin-bottom: 5px;
+    }
+    .temperature{
+        display: block;
+        font-size: 30px;
+        line-height: 1.13;
+    }
+    .temp-unit{
+        bottom: auto;
+        left: -13px;
+    }
+    .real-feel-temp{
+        display: block;
+    }
+    .ad-block{
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 970px;
+    }
+    .google-ad-block {
+        margin: 18px 118.34px;
+    }
+    .two-column-body{
+        margin: 16px auto 24px;
+    }
+    .nearest-lacations{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .nearest-lacations-blocks{
+        margin-right: 2px;
+        max-width: calc(46% - 9px);
+        min-width: calc(46% - 9px);
+        flex-grow: 1;
+    }
+    .content3-contentdiv{
+        overflow: hidden;
+    }
+    .world-content{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer{
+        padding-top: 40px;
+    }
+    .footer1{
+        margin: 0 auto;
+        max-width: 960px;
+        padding: 0;
+    }
+    .footer1-table{
+        flex-direction: row;
+    }
+    .footer1-cat1-body{
+        flex-direction: column;
+    }
+    .footer1-cat1-body1{
+        line-height: 2.15;
+        margin-right: auto;
+    }
 }
